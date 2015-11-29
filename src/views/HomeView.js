@@ -2,7 +2,6 @@ import React                  from 'react';
 import { bindActionCreators } from 'redux';
 import { connect }            from 'react-redux';
 import counterActions         from 'actions/counter';
-import { Link }               from 'react-router';
 
 // We define mapStateToProps and mapDispatchToProps where we'd normally use
 // the @connect decorator so the data requirements are clear upfront, but then
@@ -22,17 +21,28 @@ export class HomeView extends React.Component {
     counter  : React.PropTypes.number
   }
 
+  componentWillMount() {
+    let counter = parseInt(this.props.params.counter);
+    if(!Number.isInteger(counter)){
+      return;
+    }
+    this.props.actions.set(counter);
+  }
+
   render () {
+    let linkUrl = window.location.href.replace(/home(\/\d*)?$/, 'home/' + this.props.counter);
     return (
       <div className='container text-center'>
         <h1>Welcome to the React Redux Starter Kit</h1>
         <h2>Sample Counter: {this.props.counter}</h2>
+        <h2>Started from: {this.props.params.counter || 0}</h2>
         <button className='btn btn-default'
                 onClick={this.props.actions.increment}>
           Increment
         </button>
+        <h3>Link to current count:</h3>
+        <input value={linkUrl} style={{width: '300px'}}/>
         <hr />
-        <Link to='/about'>Go To About View</Link>
       </div>
     );
   }
