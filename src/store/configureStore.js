@@ -1,4 +1,4 @@
-import rootReducer          from '../reducers';
+import rootReducer          from 'reducers';
 import thunk                from 'redux-thunk';
 import DevTools             from 'containers/DevTools';
 import {

@@ -41,7 +41,7 @@ export class HomeView extends React.Component {
           Increment
         </button>
         <h3>Link to current count:</h3>
-        <input value={linkUrl} style={{width: '300px'}}/>
+        <input readOnly value={linkUrl} style={{width: '300px'}}/>
         <hr />
       </div>
     );
