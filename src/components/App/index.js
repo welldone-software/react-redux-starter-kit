@@ -1,12 +1,12 @@
-import React                    from 'react';
-import { Provider }             from 'react-redux';
-import { Router }               from 'react-router';
+import React from 'react';
+import { Provider } from 'react-redux';
+import { Router, Route, IndexRedirect } from 'react-router';
 
-import routes                   from 'routes';
 import { createDevToolsWindow } from 'utils';
-import DevTools                 from './DevTools';
+import DevTools from 'components/dev/DevTools';
+import routes from './routes';
 
-export default class Root extends React.Component {
+export default class App extends React.Component {
   static propTypes = {
     history : React.PropTypes.object.isRequired,
     store   : React.PropTypes.object.isRequired,

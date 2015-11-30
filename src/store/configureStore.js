@@ -5,8 +5,8 @@ import {
   createStore
 } from 'redux';
 
-import DevTools             from 'containers/DevTools';
-import rootReducer          from 'reducers';
+import DevTools             from 'components/dev/DevTools';
+import rootReducer          from './reducers';
 
 export default function configureStore (initialState, debug = false) {
   let createStoreWithMiddleware;
@@ -26,8 +26,8 @@ export default function configureStore (initialState, debug = false) {
     rootReducer, initialState
   );
   if (module.hot) {
-    module.hot.accept('../reducers', () => {
-      const nextRootReducer = require('../reducers/index');
+    module.hot.accept('./reducers', () => {
+      const nextRootReducer = require('./reducers/index');
 
       store.replaceReducer(nextRootReducer);
     });

@@ -1,7 +1,8 @@
 import React                  from 'react';
 import { bindActionCreators } from 'redux';
 import { connect }            from 'react-redux';
-import counterActions         from 'actions/counter';
+
+import counterActions         from 'store/actions/counter';
 
 // We define mapStateToProps and mapDispatchToProps where we'd normally use
 // the @connect decorator so the data requirements are clear upfront, but then
@@ -30,7 +31,7 @@ export class HomeView extends React.Component {
   }
 
   render () {
-    let linkUrl = window.location.href.replace(/home(\/\d*)?$/, 'home/' + this.props.counter);
+    let linkUrl = window.location.href.replace(/settings(\/\d*)?$/, 'settings/' + this.props.counter);
     return (
       <div className='container text-center'>
         <h1>Welcome to the React Redux Starter Kit</h1>

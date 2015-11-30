@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 import 'styles/core.scss';
 
-export default class CoreLayout extends React.Component {
+export default class Root extends React.Component {
   static propTypes = {
     children : React.PropTypes.element
   }
@@ -12,9 +12,9 @@ export default class CoreLayout extends React.Component {
     return (
       <div className='page-container'>
         <div className='menu-container text-center'>
-          <Link to='/about'>About</Link>
+          <Link to='/settings'>Settings</Link>
           <span>{' | '}</span>
-          <Link to='/'>Home</Link>
+          <Link to='/'>Documents</Link>
         </div>
         <div className='view-container'>
           {this.props.children}

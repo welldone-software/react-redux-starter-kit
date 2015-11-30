@@ -2,7 +2,7 @@ import React        from 'react';
 import ReactDOM     from 'react-dom';
 import { Provider } from 'react-redux';
 
-import DevTools     from 'containers/DevToolsWindow';
+import DevTools     from 'components/dev/DevTools/DevToolsWindow';
 
 export function createConstants (...constants) {
   return constants.reduce((acc, constant) => {
