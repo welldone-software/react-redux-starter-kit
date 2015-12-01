@@ -4,11 +4,12 @@ import createBrowserHistory from 'history/lib/createBrowserHistory';
 import { syncReduxAndRouter } from 'redux-simple-router';
 
 import App from 'components/App';
-import configureStore from 'store/configureStore';
+import configureStore from 'utils/store/configureStore';
+import rootReducer from 'store';
 
 const target = document.getElementById('root');
 const history = createBrowserHistory();
-const store = configureStore(window.__INITIAL_STATE__, __DEBUG__);
+const store = configureStore(rootReducer, window.__INITIAL_STATE__, __DEBUG__);
 
 syncReduxAndRouter(history, store);
 
@@ -22,3 +23,10 @@ const node = (
 );
 
 ReactDOM.render(node, target);
+
+if (module.hot) {
+  module.hot.accept('./reducers', () => {
+    const nextRootReducer = require('store');
+    store.replaceReducer(nextRootReducer);
+  });
+}
