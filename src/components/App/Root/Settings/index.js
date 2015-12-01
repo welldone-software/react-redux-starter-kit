@@ -1,8 +1,8 @@
-import React                  from 'react';
+import React from 'react';
 import { bindActionCreators } from 'redux';
-import { connect }            from 'react-redux';
+import { connect } from 'react-redux';
 
-import counterActions         from 'store/actions/counter';
+import {actions as counterActions} from 'store/stores/counter';
 
 // We define mapStateToProps and mapDispatchToProps where we'd normally use
 // the @connect decorator so the data requirements are clear upfront, but then
