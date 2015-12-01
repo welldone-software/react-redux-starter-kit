@@ -23,10 +23,3 @@ const node = (
 );
 
 ReactDOM.render(node, target);
-
-if (module.hot) {
-  module.hot.accept('./reducers', () => {
-    const nextRootReducer = require('store');
-    store.replaceReducer(nextRootReducer);
-  });
-}
