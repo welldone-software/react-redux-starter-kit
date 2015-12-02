@@ -41,6 +41,10 @@ export class HomeView extends React.Component {
                 onClick={this.props.actions.increment}>
           Increment
         </button>
+        <button className='btn btn-default'
+                onClick={this.props.actions.asyncIncrement}>
+          Async Increment
+        </button>
         <h3>Link to current count:</h3>
         <input readOnly value={linkUrl} style={{width: '300px'}}/>
         <hr />
